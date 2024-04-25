@@ -60,6 +60,12 @@ body {
 	will-change: transform;
 	transform-style: preserve-3d;
 }
+.main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
 h1, h2, h3, h4 {
 	font-weight: 100;
 	text-transform: uppercase;
@@ -83,9 +89,7 @@ h1, h2, h3, h4 {
 .frame-media_right {
 	left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
 }
-.frame_bg {
-	background-color: rgb(0 0 0 / .87);
-}
+
 video.frame-media {
 	width: calc(var(--index) * var(--side-big));
 	height: calc(var(--index) * var(--side-small));
@@ -121,4 +125,10 @@ video.frame-media_left {
 }
 .soundbutton.paused {
 	opacity: .25;
+}
+.cute {
+	width: calc(var(--index) * 7.5);
+}
+.love {
+	width: calc(var(--index) * 5);
 }
