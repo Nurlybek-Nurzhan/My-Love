@@ -133,6 +133,7 @@ video.frame-media_left {
 	width: calc(var(--index) * 7.5);
 }
 .love_text {
+	text-wrap: nowrap;
 	text-align: center;
 	font-size: calc(var(--index) * 1.75);
 }
