@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ffff00;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --gutter: 30px;
+  --side-small: 26;
+  --side-big: 36;
+  --side-giga-big: 50;
+  --depth: 30000px;
+  --transition: 0.75s cubic-bezier(0.075, 0.5, 0, 1);
+}
+
+@font-face {
+  font-family: raleway_c;
+  src: url(../../public/fonts/raleway-v22-cyrillic-300.woff2);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: raleway_c;
+  src: url(../../public/fonts/raleway-v22-cyrillic-100.woff2);
+  font-weight: 100;
+}
+
+body {
+  scrollbar-width: none; /* Firefox */
+  background-color: #000;
+  color: #fff;
+  font-size: calc(var(--index) * 0.8);
+  font-family: raleway_c, sans-serif;
+  line-height: 1.75;
+  height: var(--depth);
+  font-weight: 300;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  perspective: 1500px;
+}
+
+.gallery {
+  transform-style: preserve-3d;
+  height: 100%;
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition), opacity 0.75s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 100;
+  text-transform: uppercase;
+  width: min-content;
+  line-height: 1;
+}
+
+.frame h2 {
+  text-align: center;
+  font-size: calc(var(--index) * 3.3);
+}
+
+.frame-media {
+  position: relative;
+  width: calc(var(--index) * var(--side-small));
+  height: calc(var(--index) * var(--side-big));
+  background-position: center;
+  background-size: cover;
+}
+
+.gyat {
+  height: calc(var(--index) * var(--side-giga-big));
+}
+
+.frame-media_left {
+  right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+.frame-media_right {
+  left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+video.frame-media {
+  height: calc(var(--index) * var(--side-small));
+  border: none;
+  border-radius: 50%;
+}
+
+video.frame-media_right {
+  left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+video.frame-media_left {
+  right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+.text-right_light {
+  position: relative;
+  left: 9vw;
+  background-color: #13010ec0;
+}
+
+.text-left_light {
+  position: relative;
+  right: 9vw;
+  background-color: #13010ec0;
+}
+
+.text-right > * {
+  position: relative;
+  left: 18vw;
+  background-color: #13010ec0;
+}
+
+.text-left > * {
+  position: relative;
+  right: 18vw;
+  background-color: #13010ec0;
+}
+
+.frame h3 {
+  font-size: calc(var(--index) * 3);
+  padding: 1vw;
+  border-radius: 16px 16px 0 0;
+}
+
+.frame p {
+  max-width: 30vw;
+  padding: 1vw;
+  border-radius: 0 16px 16px 16px;
+}
+
+.soundbutton {
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
+  cursor: pointer;
+  width: 24px;
+  opacity: 1;
+  border-radius: 50%;
+  transition: 0.25s ease;
+  animation: customAni 1s ease-in-out 0s 2 normal none;
+}
+
+.soundbutton.paused {
+  opacity: 0.5;
+}
+
+.love,
+.cute,
+.kiss {
+  width: calc(var(--index) * 7.5);
+  cursor: pointer;
+}
+
+.love {
+  animation: heart 1.5s ease 0s infinite normal none;
+}
+
+.love_text {
+  text-wrap: nowrap;
+  text-align: center;
+  font-size: calc(var(--index) * 1.75);
+}
+
+.bg_heart {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  top: -50%;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -m-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.heart:before {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 100%;
+  z-index: -10000;
+}
+
+.heart:after {
+  position: absolute;
+  top: 0;
+  right: -50%;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 100%;
+}
+
+.gif {
+  width: calc(var(--index) * 7.5);
+  height: calc(var(--index) * 7.5);
+}
