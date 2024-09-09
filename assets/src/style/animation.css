@@ -55,21 +55,27 @@
   }
 }
 
-@keyframes glow {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-    color: #ffff00;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 @keyframes love {
   0% {
     top: 110%;
+  }
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0);
+  }
+  100% {
+    transform: translate(var(--x-offset), var(--y-offset)) scale(0.5) rotate(315deg);
+  }
+}
+
+/* Fade out */
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
